@@ -44,9 +44,10 @@ const styles = StyleSheet.create({
     borderWidth:1,
     borderColor:"#ccc",
     marginRight:8,
-
+    
   }, 
   textItem: {
+    marginTop:20,
     fontSize:19,
     textAlign:'center',
     color:"white",
