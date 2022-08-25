@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import {FlatList, StyleSheet, Text, View, Button, TextInput, ScrollView } from 'react-native';
 import React, {useState} from 'react';
 
 export default function App() {
@@ -18,9 +18,12 @@ export default function App() {
         <TextInput style={styles.textInput} placeholder='Your goal' onChangeText={goalInputHandler}/>
         <Button title='Add goal'onPress={goalAddHandler}/>
       </View>
-      <View style={styles.goalContainer}>
-        {coursGoals.map((goal) => <Text style={styles.textItem } key={goal}>{goal}</Text>)}
-      </View>
+      <FlatList style={styles.goalContainer}
+      
+      data={coursGoals}
+      renderItem={etim => <Text style={styles.textItem }>{etim.item}</Text>}
+      keyExtractor={etim => console.log (etim)}
+      />
     </View>
   );
 }
@@ -28,7 +31,7 @@ export default function App() {
 const styles = StyleSheet.create({
   appContainer: {
     flex:1, 
-    padding:50
+    padding:45
   },
   inputContainer: {
     flexDirection: 'row',
@@ -49,9 +52,9 @@ const styles = StyleSheet.create({
   textItem: {
     marginTop:20,
     fontSize:19,
-    textAlign:'center',
     color:"white",
-    backgroundColor: '#03fc2c',
-    borderRadius: 8
+    backgroundColor: '#0daad1',
+    borderRadius: 6,
+    marginTop:20
   }
 });
