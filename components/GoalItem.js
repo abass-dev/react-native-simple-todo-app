@@ -1,26 +1,29 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 
 function GoalItem(props) {
-   
   return (
-    <View>
-     <Text style={styles.textItem}>{props.text}</Text>
-  </View>
+    <View style={styles.goalItem}>
+      <Pressable
+        android_ripple={{ color: "#210644" }}
+        onPress={props.onDeleteItem.bind(this, props.id)}
+      >
+        <Text style={styles.textItem}>{props.text}</Text>
+      </Pressable>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  goalContainer: {
-    marginTop: 20,
+  goalItem: {
+    margin:8,
+    borderRadius: 6,
+    backgroundColor: "#5e0acc",
   },
   textItem: {
-    marginTop: 20,
     fontSize: 19,
+    padding: 8,
     color: "white",
-    backgroundColor: "#0daad1",
-    borderRadius: 6,
-    marginTop: 20,
   },
 });
 
